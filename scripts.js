@@ -124,13 +124,22 @@ document.addEventListener('DOMContentLoaded', function() {
     // Generate random array
     function generateArray() {
         array = [];
-        for (let i = 0; i < 10; i++) {
+        // در حالت ریسپانسیو (عرض کمتر از 768px) 5 عنصر، در غیر این صورت 10 عنصر
+        const arraySize = window.innerWidth < 768 ? 5 : 10;
+        for (let i = 0; i < arraySize; i++) {
             array.push(Math.floor(Math.random() * 100) + 10);
         }
         originalArray = [...array];
         renderArray();
         sortBtn.disabled = false;
     }
+
+    // Regenerate array on window resize
+    window.addEventListener('resize', () => {
+        if (!isSorting && array.length > 0) {
+            generateArray();
+        }
+    });
 
     // Render array
     function renderArray() {
@@ -141,7 +150,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const element = document.createElement('div');
             element.className = 'array-element';
             element.textContent = value;
-            element.style.height = `${(value / maxValue) * 250}px`;
+            const height = (value / maxValue) * 250;
+            element.style.height = `${height}px`;
+            // برای اعداد کوچک (ارتفاع کمتر از 50px)، عدد را در مرکز قرار می‌دهیم
+            if (height < 50) {
+                element.style.alignItems = 'center';
+            }
             element.dataset.index = index;
             arrayContainer.appendChild(element);
         });
@@ -270,7 +284,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 element.classList.add('sorted');
             }
             element.textContent = value;
-            element.style.height = `${(value / maxValue) * 250}px`;
+            const height = (value / maxValue) * 250;
+            element.style.height = `${height}px`;
+            // برای اعداد کوچک (ارتفاع کمتر از 50px)، عدد را در مرکز قرار می‌دهیم
+            if (height < 50) {
+                element.style.alignItems = 'center';
+            }
             element.dataset.index = index;
             quicksortContainer.appendChild(element);
         });
@@ -329,7 +348,19 @@ document.addEventListener('DOMContentLoaded', function() {
         // Mark pivot in final position
         sortedIndices.add(i + 1);
         quicksortRenderArray();
+        await sleep(300);
+        
+        // Highlight pivot in final position
+        elements = quicksortContainer.querySelectorAll('.array-element');
+        if (elements[i + 1]) {
+            elements[i + 1].classList.add('pivot');
+        }
         await sleep(600);
+        
+        // Remove pivot highlight
+        if (elements[i + 1]) {
+            elements[i + 1].classList.remove('pivot');
+        }
 
         return i + 1;
     }

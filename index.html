@@ -18,11 +18,11 @@
             <li><a href="#slide-4" class="nav-link" data-slide="4">کاربردها</a></li>
             <li><a href="#slide-5" class="nav-link" data-slide="5">انواع</a></li>
             <li><a href="#slide-6" class="nav-link" data-slide="6">تکرار/بازگشت</a></li>
-            <li><a href="#slide-7" class="nav-link" data-slide="7">ساختار/الگوریتم</a></li>
+            <li><a href="#slide-7" class="nav-link" data-slide="7">ساختار داده /الگوریتم</a></li>
             <li><a href="#slide-8" class="nav-link" data-slide="8">ویژگی‌ها</a></li>
-            <li><a href="#slide-9" class="nav-link" data-slide="9">پیچیدگی</a></li>
-            <li><a href="#slide-10" class="nav-link" data-slide="10">بابل</a></li>
-            <li><a href="#slide-11" class="nav-link" data-slide="11">کوئیک</a></li>
+            <li><a href="#slide-9" class="nav-link" data-slide="9">پیچیدگی زمانی</a></li>
+            <li><a href="#slide-10" class="nav-link" data-slide="10">الگوریتم ها در عمل</a></li>
+            <!-- <li><a href="#slide-11" class="nav-link" data-slide="11">کوئیک</a></li> -->
             <li><a href="#slide-12" class="nav-link" data-slide="12">منابع</a></li>
         </ul>
     </nav>
@@ -48,7 +48,7 @@
                     الگوریتم مجموعه‌ای از دستورالعمل‌های مرحله‌به‌مرحله و واضح است که برای حل یک مسئله یا انجام یک کار استفاده می‌شود.
                 </p>
                 <div class="definition-box">
-                    <h3>تعریف رسمی:</h3>
+                    <h3>تعریف:</h3>
                     <p>
                         الگوریتم یک روش سیستماتیک و منطقی برای حل مسئله است که در تعداد محدودی از مراحل، 
                         ورودی را به خروجی تبدیل می‌کند. هر الگوریتم باید واضح، قطعی و محدود باشد.
@@ -56,7 +56,7 @@
                 </div>
                 <div class="example-box">
                     <h3>مثال ساده:</h3>
-                    <p>الگوریتم پختن چای: آب را بجوشان ← چای را اضافه کن ← صبر کن ← صاف کن</p>
+                    <p>الگوریتم پختن برنج: آب را بجوشان ← برنج را اضافه کن ← صبر کن ← صاف کن</p>
                 </div>
             </div>
         </div>
@@ -131,15 +131,11 @@
             <div class="algorithms-grid">
                 <div class="algorithm-card">
                     <h3>🔎 الگوریتم‌های جستجو <span class="english-name">(Search Algorithms)</span></h3>
-                    <p>جستجوی خطی، دودویی، عمق‌اول، عرض‌اول</p>
+                    <p>binary search,linear search</p>
                 </div>
                 <div class="algorithm-card">
                     <h3>📊 الگوریتم‌های مرتب‌سازی <span class="english-name">(Sorting Algorithms)</span></h3>
-                    <p>مرتب‌سازی حبابی، سریع، ادغامی، هرمی</p>
-                </div>
-                <div class="algorithm-card">
-                    <h3>✂️ تقسیم و حل <span class="english-name">(Divide and Conquer)</span></h3>
-                    <p>تقسیم مسئله به زیرمسائل کوچکتر و حل مستقل</p>
+                    <p>bubble sorting,quick sorting</p>
                 </div>
             </div>
         </div>
@@ -156,23 +152,22 @@
                         استفاده از حلقه‌ها (loop) برای اجرای مکرر یک دستورالعمل تا زمانی که شرط خاصی برقرار باشد.
                     </p>
                     <div class="code-example">
-                        <h4>مثال: محاسبه فاکتوریل با تکرار</h4>
-                        <pre><code>function factorial(n) {
-    let result = 1;
+                        <h4>مثال: جمع اعداد از 1 تا n</h4>
+                        <pre><code>function sum(n) {
+    let total = 0;
     for (let i = 1; i <= n; i++) {
-        result = result * i;
+        total = total + i;
     }
-    return result;
+    return total;
 }
 
-factorial(5) = 120</code></pre>
+sum(5) = 1 + 2 + 3 + 4 + 5 = 15</code></pre>
                     </div>
                     <div class="concept-pros-cons">
                         <div class="pros">
                             <strong>مزایا:</strong>
                             <ul>
                                 <li>کارایی حافظه بهتر</li>
-                                <li>ساده‌تر برای درک</li>
                                 <li>بدون خطر Stack Overflow</li>
                             </ul>
                         </div>
@@ -185,27 +180,25 @@ factorial(5) = 120</code></pre>
                         تابعی که خودش را صدا می‌زند تا مسئله را به زیرمسائل کوچکتر تقسیم کند.
                     </p>
                     <div class="code-example">
-                        <h4>مثال: محاسبه فاکتوریل با بازگشت</h4>
-                        <pre><code>function factorial(n) {
-    if (n === 0 || n === 1) {
+                        <h4>مثال: جمع اعداد از 1 تا n</h4>
+                        <pre><code>function sum(n) {
+    if (n === 1) {
         return 1;
     }
-    return n * factorial(n - 1);
+    return n + sum(n - 1);
 }
 
-factorial(5) = 5 × factorial(4)
-             = 5 × 4 × factorial(3)
-             = 5 × 4 × 3 × factorial(2)
-             = 5 × 4 × 3 × 2 × factorial(1)
-             = 120</code></pre>
+sum(5) = 5 + sum(4)
+       = 5 + 4 + sum(3)
+       = 5 + 4 + 3 + sum(2)
+       = 5 + 4 + 3 + 2 + sum(1)
+       = 5 + 4 + 3 + 2 + 1 = 15</code></pre>
                     </div>
                     <div class="concept-pros-cons">
                         <div class="pros">
                             <strong>مزایا:</strong>
                             <ul>
                                 <li>کد کوتاه‌تر و خوانا</li>
-                                <li>مناسب برای مسائل درختی</li>
-                                <li>طبیعی‌تر برای برخی الگوریتم‌ها</li>
                             </ul>
                         </div>
                     </div>
@@ -238,7 +231,6 @@ factorial(5) = 5 × factorial(4)
                                 <li>لیست پیوندی (Linked List)</li>
                                 <li>پشته (Stack)</li>
                                 <li>صف (Queue)</li>
-                                <li>درخت (Tree)</li>
                                 <li>گراف (Graph)</li>
                             </ul>
                         </div>
@@ -253,9 +245,8 @@ factorial(5) = 5 × factorial(4)
                             <ul>
                                 <li>جستجو (Search)</li>
                                 <li>مرتب‌سازی (Sort)</li>
-                                <li>درج و حذف</li>
+                                <li>درج و حذف(insert and delete)</li>
                                 <li>پیمایش (Traversal)</li>
-                                <li>بهینه‌سازی</li>
                             </ul>
                         </div>
                     </div>
@@ -391,6 +382,62 @@ factorial(5) = 5 × factorial(4)
                     <div class="complexity-bar" style="width: 70%">O(n²)</div>
                     <div class="complexity-bar" style="width: 100%">O(2ⁿ)</div>
                 </div>
+                
+                <div class="complexity-example">
+                    <h3>مثال واقعی: جستجوی نام در دفترچه تلفن</h3>
+                    <p class="example-intro">
+                        فرض کنید می‌خواهید نام یک نفر را در یک لیست پیدا کنید. 
+                        ببینید با افزایش تعداد ورودی چه اتفاقی می‌افتد:
+                    </p>
+                    <div class="example-comparison">
+                        <div class="comparison-table">
+                            <div class="comparison-header">
+                                <div class="comparison-cell">تعداد ورودی</div>
+                                <div class="comparison-cell">O(1) - Hash Table</div>
+                                <div class="comparison-cell">O(log n) - Binary Search</div>
+                                <div class="comparison-cell">O(n) - Linear Search</div>
+                                <div class="comparison-cell">O(n²) - Bubble Sort</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell"><strong>10</strong></div>
+                                <div class="comparison-cell">1 عملیات</div>
+                                <div class="comparison-cell">~3 عملیات</div>
+                                <div class="comparison-cell">~10 عملیات</div>
+                                <div class="comparison-cell">~100 عملیات</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell"><strong>100</strong></div>
+                                <div class="comparison-cell">1 عملیات</div>
+                                <div class="comparison-cell">~7 عملیات</div>
+                                <div class="comparison-cell">~100 عملیات</div>
+                                <div class="comparison-cell">~10,000 عملیات</div>
+                            </div>
+                            <div class="comparison-row highlight-row">
+                                <div class="comparison-cell"><strong>1,000</strong></div>
+                                <div class="comparison-cell">1 عملیات</div>
+                                <div class="comparison-cell">~10 عملیات</div>
+                                <div class="comparison-cell">~1,000 عملیات</div>
+                                <div class="comparison-cell">~1,000,000 عملیات</div>
+                            </div>
+                            <div class="comparison-row">
+                                <div class="comparison-cell"><strong>1,000,000</strong></div>
+                                <div class="comparison-cell">1 عملیات</div>
+                                <div class="comparison-cell">~20 عملیات</div>
+                                <div class="comparison-cell">~1,000,000 عملیات</div>
+                                <div class="comparison-cell">~1,000,000,000,000 عملیات</div>
+                            </div>
+                        </div>
+                        <div class="example-insights">
+                            <h4>نکات کلیدی:</h4>
+                            <ul>
+                                <li><strong>O(1):</strong> زمان اجرا همیشه ثابت است، مهم نیست 10 ورودی باشد یا 1 میلیون!</li>
+                                <li><strong>O(log n):</strong> با دو برابر شدن داده، فقط یک عملیات بیشتر نیاز است</li>
+                                <li><strong>O(n):</strong> زمان اجرا به طور مستقیم با تعداد داده‌ها افزایش می‌یابد</li>
+                                <li><strong>O(n²):</strong> با دو برابر شدن داده، زمان اجرا 4 برابر می‌شود! برای داده‌های بزرگ عملا غیرقابل استفاده هست</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -398,7 +445,7 @@ factorial(5) = 5 × factorial(4)
     <!-- Slide 10: Bubble Sort Demo -->
     <section id="slide-10" class="slide">
         <div class="slide-content">
-            <h2 class="slide-title">دموی مرتب‌سازی حبابی</h2>
+            <h2 class="slide-title">bubble sort</h2>
             <div class="demo-container">
                 <p class="demo-description">
                     الگوریتم مرتب‌سازی حبابی (Bubble Sort) یکی از ساده‌ترین الگوریتم‌های مرتب‌سازی است 
@@ -421,9 +468,9 @@ factorial(5) = 5 × factorial(4)
     </section>
 
     <!-- Slide 11: Quick Sort Demo -->
-    <section id="slide-11" class="slide">
+    <!-- <section id="slide-11" class="slide">
         <div class="slide-content">
-            <h2 class="slide-title">دموی مرتب‌سازی سریع</h2>
+            <h2 class="slide-title">quick sort</h2>
             <div class="demo-container">
                 <p class="demo-description">
                     الگوریتم مرتب‌سازی سریع (Quick Sort) یک الگوریتم تقسیم و حل است که با انتخاب یک عنصر به عنوان pivot، 
@@ -443,7 +490,7 @@ factorial(5) = 5 × factorial(4)
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- Slide 12: Learning Resources -->
     <section id="slide-12" class="slide">
@@ -474,7 +521,7 @@ factorial(5) = 5 × factorial(4)
     <!-- Footer -->
     <footer class="developer-footer">
         <div class="footer-content">
-            <span class="footer-text">DEVELOPED BY</span>
+            <span class="footer-text">DEVELOPING BY</span>
             <a href="http://abeheshti.ir/" target="_blank" rel="noopener noreferrer" class="footer-link">BEHESHTI</a>
             <a href="https://github.com/mr-alibeheshti/what-is-algorithm" target="_blank" rel="noopener noreferrer" class="footer-github" aria-label="GitHub Repository">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
