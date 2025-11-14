@@ -1,0 +1,66 @@
+/* فونت‌های فارسی - Persian Fonts - PelakFA */
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'PelakFA';
+    src: url('fonts/PelakFA-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
